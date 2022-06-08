@@ -1,5 +1,5 @@
 import './css/styles.css';
-import { fetchCountries } from './fetchCountries';
+import { fetchCountries } from './js/fetchCountries';
 import Notiflix from 'notiflix';
 import debounce from 'lodash.debounce';
 
@@ -59,9 +59,9 @@ function renderCountriesInfo(countries) {
     countryList.innerHTML = "";
 
     const countryInfoMarkup = countries.map((country) => {
-      return `<h2 class="country-info__heading">
-      <img class="country-info__flag" src="${country.flags.svg}" alt="The flag of ${country.name.common}">
-       ${country.name.common}</h2>
+      return `<div class="country-info__heading">
+      <img class="country-info__flag" src="${country.flags.svg}" alt="The flag of ${country.name.common}"><h2>
+       ${country.name.common}<h2></div>
       <p class="country-info__item"><span class="country-info__label">Capital:</span> ${country.capital}</p>
       <p class="country-info__item"><span class="country-info__label">Population:</span> ${country.population}</p>
       <p class="country-info__item"><span class="country-info__label">Languages:</span> ${Object.values(country.languages).join(", ")}</p>`;
