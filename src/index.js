@@ -19,7 +19,7 @@ function searching() {
       countryList.innerHTML = "";
       countryInfo.innerHTML = "";
       console.log(error);
-      
+
       if (searchBox.value !== "") {
         Notiflix.Notify.failure("Oops, there is no country with that name");
       };
@@ -40,9 +40,9 @@ function renderCountriesInfo(countries) {
 
     const markup = countries
       .map((country) => {
-        return `<li>
-      <img class="flag" src="${country.flags.svg}" alt="The flag of ${country.name.common}">
-      <span> ${country.name.official}</span>
+        return `<li class="country-list__item">
+      <img class="country-list__item-flag" src="${country.flags.svg}" alt="The flag of ${country.name.common}">
+      <p country-list__item-text> ${country.name.common}</p>
       </li>`;
       })
       .join("");
@@ -53,11 +53,11 @@ function renderCountriesInfo(countries) {
     countryList.innerHTML = "";
 
     const countryInfoMarkup = countries.map((country) => {
-      return `<img class="flag" src="${country.flags.svg}" alt="The flag of ${country.name.common}">
-      <p> ${country.name.official}</p>
-      <p> ${country.capital}</p>
-      <p> ${country.population}</p>
-      <p> ${country.languages}</p>`;
+      return `<h2 class="country-info__heading"><img class="country-info__flag" src="${country.flags.svg}" alt="The flag of ${country.name.common}">
+       ${country.name.common}</h2>
+      <p class="country-info__item"><span class="country-info__label">Capital:</span> ${country.capital}</p>
+      <p class="country-info__item"><span class="country-info__label">Population:</span> ${country.population}</p>
+      <p class="country-info__item"><span class="country-info__label">Languages:</span> ${Object.values(country.languages).join(", ")}</p>`;
     });
 
     countryInfo.innerHTML = countryInfoMarkup;
