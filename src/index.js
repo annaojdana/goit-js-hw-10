@@ -16,14 +16,18 @@ function searching() {
     .catch(error => console.log(error));
 }
 function renderCountriesInfo(countries) {
-  const markup = countries
+  if (countries.lenght > 1) {
+    const markup = countries
     .map((country) => {
       return `<li>
-          <p><b>Name</b>: ${country.name.official}</p>
-          <p><b>Capital</b>: ${country.capital}</p>
-          <p><b>Languages</b>: ${country.languages}</p>
-        </li>`;
+      <svg class="flag">
+      <use href="${country.flags.svg}"></use>
+      </svg>
+      <p> ${country.name.official}</p>
+      </li>`;
     })
     .join("");
   countryList.innerHTML = markup;
+  }
+
 }
