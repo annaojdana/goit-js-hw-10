@@ -3,14 +3,16 @@ import { fetchCountries } from './fetchCountries';
 import Notiflix from 'notiflix';
 import debounce from 'lodash.debounce';
 
+// QuerySelectors
 const searchBox = document.querySelector("#search-box");
 const countryList = document.querySelector(".country-list");
 const countryInfo = document.querySelector(".country-info");
 
+// Listening for the input
 const DEBOUNCE_DELAY = 300;
 searchBox.addEventListener("input", debounce(searching, DEBOUNCE_DELAY));
 
-
+// Functions
 function searching() {
 
   fetchCountries(searchBox.value.trim())
@@ -25,8 +27,11 @@ function searching() {
       };
     }
     );
-}
+};
+
+
 function renderCountriesInfo(countries) {
+
   if (countries.length > 10) {
 
     countryList.innerHTML = "";
@@ -50,10 +55,12 @@ function renderCountriesInfo(countries) {
     countryList.innerHTML = markup;
 
   } else if (countries.length === 1) {
+
     countryList.innerHTML = "";
 
     const countryInfoMarkup = countries.map((country) => {
-      return `<h2 class="country-info__heading"><img class="country-info__flag" src="${country.flags.svg}" alt="The flag of ${country.name.common}">
+      return `<h2 class="country-info__heading">
+      <img class="country-info__flag" src="${country.flags.svg}" alt="The flag of ${country.name.common}">
        ${country.name.common}</h2>
       <p class="country-info__item"><span class="country-info__label">Capital:</span> ${country.capital}</p>
       <p class="country-info__item"><span class="country-info__label">Population:</span> ${country.population}</p>
@@ -61,8 +68,12 @@ function renderCountriesInfo(countries) {
     });
 
     countryInfo.innerHTML = countryInfoMarkup;
+
   } else {
+
     countryList.innerHTML = "";
     countryInfo.innerHTML = "";
+
   };
-}
+};
+
