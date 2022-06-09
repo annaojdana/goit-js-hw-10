@@ -2,20 +2,20 @@
   "name": "goit-js-hw-10",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://goitacademy.github.io/goit-js-hw-10",
+  "homepage": "https://annaojdana.github.io/goit-js-hw-10",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /goit-js-hw-10/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/goit-js-hw-10.git"
+    "url": "git+https://github.com/annaojdana/goit-js-hw-10.git"
   },
   "keywords": [],
   "author": "Anna Ojdana anna.ojdana@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goitacademy/goit-js-hw-10/issues"
+    "url": "https://github.com/annaojdana/goit-js-hw-10/issues"
   },
   "dependencies": {
     "lodash.debounce": "^4.0.8",
